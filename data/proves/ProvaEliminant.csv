@@ -1,0 +1,246 @@
+id,Sexe,Perfil,Districte de residŠncia,Edat,satisfacinf,nivellqualitat,aspectmillora,nivellalumnat,sisteducatiu,iniciativapubresultats,instrprovesexternes
+1,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,1,1,1,2,1,1,2
+2,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Menys de 35 anys,,1,1,3,2,1,2
+3,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,3,2,1,2,2
+4,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,3,1,3,3,4,1,2
+5,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,3,3,3,1,3
+6,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,2,1,2
+7,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,4,3,3,3,4,1
+8,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,2,2,2
+9,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,M‚s de 55 anys,,3,3,2,3,3,3
+10,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,2,2,2,1,1,3
+11,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,3,3
+12,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,2,2,3
+13,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,4,4,4,4,4,1
+14,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,3,3,3,4,3
+15,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,2,1,2
+16,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,2,2,2,2,2,3
+17,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,M‚s de 55 anys,3,2,2,2,2,1,2
+18,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,1,2,3,1,1,3
+19,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,2,1,1,1,4,1,2
+20,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,2,1,1,2
+21,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,3,3,3,3,2,3
+22,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,4,1
+23,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,2,2,1,3
+24,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,1,2,2,1,1,2
+25,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,3,3
+26,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,3,2,2
+27,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,2,3,3,1,3,3
+28,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+29,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,3,3,2,3,1,3
+30,Home,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,2,2,1,3,3
+31,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,1,2,1,1,1,2
+32,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,3,3,3,3,1,3
+33,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,2,4,2,2
+34,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,1,1,3,2,2
+35,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,M‚s de 55 anys,,1,2,2,1,1,3
+36,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,M‚s de 55 anys,,1,2,1,1,1,2
+37,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Menys de 35 anys,,3,3,3,2,1,3
+38,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,3,3,3,3,3,1
+39,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,2,2,3,1,1,3
+40,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+41,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,1,1,1,3,1,2
+42,Home,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Menys de 35 anys,,1,1,1,2,1,2
+43,Home,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+44,Home,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,4,3,4,1,1
+45,Home,Ambdues,Altres districtes de Barcelona,M‚s de 55 anys,3,1,1,1,1,1,2
+46,Home,Ambdues,Gr…cia,Entre 35 i 55 anys,,3,2,3,1,1,3
+47,Home,Ambdues,Altres municipis,Entre 35 i 55 anys,,3,3,3,2,3,1
+48,Home,Ambdues,Gr…cia,Entre 35 i 55 anys,,1,2,2,2,1,3
+49,Home,Ambdues,Altres municipis,Entre 35 i 55 anys,,1,1,2,3,2,2
+50,Home,Ambdues,Gr…cia,Entre 35 i 55 anys,2,2,2,2,2,2,3
+51,Home,Ambdues,Altres municipis,Entre 35 i 55 anys,,2,2,1,4,1,2
+52,Home,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,2,1,3
+53,Home,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,2,1,3
+54,Home,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+55,Home,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+56,Home,Altres,Gr…cia,Entre 35 i 55 anys,,1,2,2,1,1,2
+57,Home,Altres,Altres districtes de Barcelona,M‚s de 55 anys,,3,3,2,2,1,3
+58,Home,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,2,2,2
+59,Home,Altres,Altres municipis,Entre 35 i 55 anys,,2,3,3,3,2,3
+60,Home,Altres,Altres districtes de Barcelona,Menys de 35 anys,,1,2,2,1,1,2
+61,Home,Altres,Altres districtes de Barcelona,M‚s de 55 anys,,3,4,3,3,2,1
+62,Home,Altres,Altres districtes de Barcelona,Menys de 35 anys,,3,3,3,3,1,3
+63,Home,Altres,Altres districtes de Barcelona,Menys de 35 anys,,3,3,3,2,2,2
+64,Home,Altres,Altres municipis,Entre 35 i 55 anys,,3,3,3,3,3,3
+65,Home,Altres,Altres municipis,Entre 35 i 55 anys,2,2,2,2,2,4,1
+66,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,2,2,2,1,1,1,2
+67,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,1,3,3,2,3,1,3
+68,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,3,1,2,2,3,1,2
+69,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,2,1,3
+70,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,2,1,1,1,1,1,2
+71,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,3,3
+72,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,3,1,1,2,2,1,2
+73,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,4,3
+74,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,3,3,2,1,3
+75,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,4,1,3,4,2
+76,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,2,1,1,2
+77,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,3,3
+78,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,3,3,1
+79,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,1,3,3,3,2,3,3
+80,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,2,2,2,2
+81,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,1,1,1,1,1,2
+82,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,2,1,3,1,2
+83,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,2,3,2,3,2,3
+84,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,3,2,3,3,3,1,2
+85,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,3,2,3,3,3,1,2
+86,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,2,2,3,2,2,1,2
+87,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,2,2,3,2,2,1,2
+88,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+89,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,2,1,2,1,1,1,2
+90,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,2,1,4,1,2
+91,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,2,3,3
+92,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,3,3,3
+93,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Menys de 35 anys,,2,2,2,2,2,2
+94,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,3,3,3,3,3,3
+95,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,3,1,1,1,2
+96,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,3,1,2,1,2
+97,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,4,4,4,4,3,3
+98,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,1,1,1,4,1,2
+99,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,4,3,3,3,4,3
+100,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,4,4,4,4,2,3
+101,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,3,2,3,1,3
+102,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,2,2,2,2
+103,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,1,2,2,3,1,2
+104,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,2,2,1,1,2
+105,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,2,2,3
+106,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,3,3,4,3,2,2,3
+107,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,2,3,3,3,3
+108,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,1,3
+109,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,4,3
+110,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,2,1,2
+111,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,3,3,3,3,3,1,2
+112,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,1,2,3,1,1,3
+113,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,3,3,2,1,3
+114,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,2,2,1,3
+115,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,3,1,3
+116,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,2,2,2,1,3
+117,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,1,2,2,2
+118,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,1,1,2
+119,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,3,2,1,3,3
+120,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,2,2,1,3
+121,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,3,3,1,1,3,2
+122,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,4,1,2
+123,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,4,3,2,3,3
+124,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,1,3,3,3,2,1,3
+125,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,3,3,1,1,2
+126,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Menys de 35 anys,,3,4,4,2,2,1
+127,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,1,4,2
+128,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,2,2,3,3,1,2,3
+129,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Menys de 35 anys,,2,3,2,1,1,3
+130,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+131,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,3,1,1,3
+132,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,2,1,1,3
+133,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+134,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,2,2,1,2
+135,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,1,3,3,1,2,1,3
+136,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,2,3
+137,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,2,2,3,2,1,3
+138,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,3,3,2,3
+139,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+140,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,2,2,2,2,1,2,2
+141,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,3,3,3,3,3,3
+142,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,1,3,3,2,1,3
+143,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres municipis,Entre 35 i 55 anys,,1,1,1,3,3,2
+144,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,2,1,2,3
+145,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+146,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+147,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+148,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+149,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,2,1,2
+150,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,1,1,1,1,2
+151,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,1,3,1,2
+152,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,2,2,3
+153,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,4,4,4,2,2,1
+154,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,1,3,3,3,1,1,2
+155,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,2,1,2
+156,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,1,1,2
+157,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,2,2,2,1,1,2
+158,Dona,Mare o pare ÿd?alumne en edat d?escolaritzaci¢ obligat•ria,Gr…cia,Entre 35 i 55 anys,,1,3,2,2,1,2
+159,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,M‚s de 55 anys,,1,3,3,3,1,3
+160,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,Entre 35 i 55 anys,,1,2,2,3,1,2
+161,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,Entre 35 i 55 anys,,2,1,1,1,1,2
+162,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Menys de 35 anys,,3,4,3,3,3,1
+163,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,1,3,3,2,1,3
+164,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,4,3,2,3
+165,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,3,2,2,3
+166,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,2,2,2,3,1,3
+167,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,3,3,3,3,2,3
+168,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,Entre 35 i 55 anys,,2,3,3,1,1,2
+169,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,2,3,2
+170,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,1,1,2
+171,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,3,3,3,3,3,1
+172,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,Entre 35 i 55 anys,,1,1,1,1,1,2
+173,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,2,3,3,3,1,2
+174,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,2,3,1,2
+175,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,1,2,2,4,1,2
+176,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,M‚s de 55 anys,,2,2,1,3,2,2
+177,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,3,2,3,1,4,2
+178,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,3,3,3
+179,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,4,4,2,2,2,1
+180,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,2,2,1,1,1,2
+181,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,M‚s de 55 anys,,4,4,4,4,2,3
+182,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,3,3,2,2,3
+183,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,1,1,1,1,1,2
+184,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,2,2,2,1,2,3
+185,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,2,2,2,2,1,3
+186,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,3,2,2,1,2
+187,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,3,3,2,2,2,3
+188,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,3,3,3,2,2,3
+189,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,1,2,2,2,1,2
+190,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,M‚s de 55 anys,,3,4,3,1,1,3
+191,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,2,2,1,1,3
+192,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,1,2,2,1,1,3
+193,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,1,1,1,1,1,2
+194,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,M‚s de 55 anys,,2,3,2,2,1,2
+195,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,2,2,2,2,3
+196,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres municipis,Entre 35 i 55 anys,,2,2,2,4,1,3
+197,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Menys de 35 anys,,1,1,1,1,1,2
+198,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Altres districtes de Barcelona,Menys de 35 anys,,2,2,3,2,2,1
+199,Dona,Mestre/a d?educaci¢ prim…ria o secund…ria,Gr…cia,Menys de 35 anys,,1,1,1,1,1,2
+200,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,1,2,1,2,1,2
+201,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,1,2,2,2,1,2
+202,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,2,2,2,2,2,3
+203,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,3,2,3,1,3
+204,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,1,1,1,1,3,3
+205,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,4,4,3,2,3
+206,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,3,4,4,3,2,3
+207,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,2,2,2,2,3
+208,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,1,3,1,3,2,3
+209,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,3,1,1,3,3,1,2
+210,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,2,2,2,2,3,1,2
+211,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,2,3,2,3,1,3
+212,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,2,1,3
+213,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,3,1,2,3
+214,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,3,3,2,1,3
+215,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,3,4,3,4,3,1
+216,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,2,1,3
+217,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+218,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+219,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,2,2,3,3,2
+220,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,3,2,3,1,3
+221,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,2,2,2,1,3
+222,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,2,2,2,2,2,1,2
+223,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,2,2,3,1,2
+224,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,3,1,2
+225,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,2,1,3,1,2
+226,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,2,2,2,1,3
+227,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,2,3,2,3,3
+228,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,1,4,3,3,1,3
+229,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,1,3,3,1,1,3
+230,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,2,1,1,1,1,1,2
+231,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,3,2,1,2,3
+232,Dona,Ambdues,Gr…cia,Entre 35 i 55 anys,,2,2,1,2,1,2
+233,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,3,3,2,2,2
+234,Dona,Ambdues,Altres municipis,Entre 35 i 55 anys,,2,3,3,2,2,3
+235,Dona,Ambdues,Altres districtes de Barcelona,Entre 35 i 55 anys,,2,4,3,2,1,3
+236,Dona,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,1,1,2
+237,Dona,Altres,Altres districtes de Barcelona,Menys de 35 anys,,1,2,2,3,1,2
+238,Dona,Altres,Gr…cia,M‚s de 55 anys,,2,2,3,2,3,2
+239,Dona,Altres,Altres districtes de Barcelona,M‚s de 55 anys,,2,2,2,2,2,2
+240,Dona,Altres,Altres municipis,Entre 35 i 55 anys,,2,3,3,3,1,3
+241,Dona,Altres,Gr…cia,Entre 35 i 55 anys,,2,3,2,1,1,3
+242,Dona,Altres,Altres municipis,Entre 35 i 55 anys,3,1,2,2,1,1,2
+243,Dona,Altres,Altres municipis,Entre 35 i 55 anys,,3,3,3,3,3,3
+244,Dona,Altres,Altres districtes de Barcelona,Entre 35 i 55 anys,,1,1,1,3,3,2
+245,Dona,Altres,Altres municipis,Menys de 35 anys,,1,1,1,1,1,2

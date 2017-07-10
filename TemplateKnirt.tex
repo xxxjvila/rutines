@@ -1,0 +1,753 @@
+\documentclass[a4paper,titlepage,12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{longtable}
+%\usepackage[catalan]{babel}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+%\usepackage[ansinew]{inputenc}
+\usepackage{hyperref}
+%\usepackage[pdftex]{color,graphicx,epsfig}
+\DeclareGraphicsRule{.pdftex}{pdf}{.pdftex}{}
+\usepackage{amssymb,amsmath}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{Sweave}
+\usepackage{lscape}
+\usepackage{float}
+%\usepackage{color} 
+\usepackage[latin1]{inputenc}
+\usepackage{sectsty}
+\usepackage[final]{pdfpages}
+\sectionfont{\large}
+\usepackage{listings}
+
+%\bffont{\large}
+% to change margings in itemize
+\newenvironment{itemize*}%
+{\begin{itemize}%
+ \setlength{\itemsep}{-0.35cm}%
+ \setlength{\parskip}{10pt}}%
+{\end{itemize}}
+
+
+% to change margin
+\newenvironment{changemargin1}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{-2cm}
+    \setlength{\rightmargin}{3cm}
+    \footnotesize
+  }
+  \item[]
+}{\end{list}}
+
+
+
+% to make fancy header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{Multivariate Analysis}
+\fancyhead[R]{Judith Pe?afiel \qquad \thepage}
+\renewcommand{\headrulewidth}{0.5pt} 
+\addtolength{\headheight}{5pt}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+
+\begin{document}
+
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{\'{I}ndice de tablas} 
+\renewcommand{\listfigurename}{\'{I}ndice de figuras}
+
+
+\title{\bf Exercises Multivariate Analysis}
+
+\vspace{1cm}
+
+\author{Judith Pe?afiel}
+
+
+\maketitle
+\newpage
+
+
+\section{An?lisi discriminant}
+\subsection{Find the mean vectors and the covariance matrices.}
+Comen?em llegint les dades
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{rm}\hlstd{(}\hlkwc{list} \hlstd{=} \hlkwd{ls}\hlstd{())}
+\hlkwd{library}\hlstd{(xtable)}
+\hlcom{## setwd('C:/Documents and Settings/jpenafiel/Mis}
+\hlcom{## documentos/Dropbox/rutines/')}
+\hlkwd{setwd}\hlstd{(}\hlstr{"C:/programs/Dropbox/rutines"}\hlstd{)}
+\hlstd{dat} \hlkwb{<-} \hlkwd{read.table}\hlstd{(}\hlstr{"Copepodes.csv"}\hlstd{,} \hlkwc{header} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{sep} \hlstd{=} \hlstr{";"}\hlstd{)}
+\hlstd{dat} \hlkwb{<-} \hlstd{dat[}\hlopt{-}\hlkwd{nrow}\hlstd{(dat), ]}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Calculem les mitjanes del vector: 
+\begin{itemize}
+\item $\tilde{\mu}$ de tota la poblaci?.
+\item $\tilde{\mu_{1}}$   del estadi 1.
+\item $\tilde{\mu_{2}}$  del estadi 2.
+\end{itemize}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{xbar0} \hlkwb{<-} \hlkwd{apply}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{],} \hlnum{2}\hlstd{, mean,} \hlkwc{na.rm} \hlstd{= T)}  \hlcom{## sample mean vector of the all estadi}
+\hlstd{xbar1} \hlkwb{<-} \hlkwd{apply}\hlstd{(}\hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{1}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{],} \hlnum{2}\hlstd{, mean)}  \hlcom{## sample mean vector of the first estadi}
+\hlstd{xbar2} \hlkwb{<-} \hlkwd{apply}\hlstd{(}\hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{2}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{],} \hlnum{2}\hlstd{, mean)}  \hlcom{## sample mean vector of the second estadi}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Obtenim com a resultat:
+% latex table generated in R 3.0.1 by xtable 1.7-1 package
+% Wed Jun 25 14:26:41 2014
+\begin{table}[ht]
+\centering
+\caption{Vector de mitjanes} 
+\begin{tabular}{rrr}
+  \hline
+ & long & amp \\ 
+  \hline
+Tota la poblaci? & 231.56 & 143.41 \\ 
+  Estadi 1 & 219.49 & 138.08 \\ 
+  Estadi 2 & 241.64 & 147.86 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+Calculem les matrius de covari?ncia: 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{cov.mat0} \hlkwb{<-} \hlkwd{cov}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{],} \hlkwc{use} \hlstd{=} \hlstr{"complete.obs"}\hlstd{)}  \hlcom{## covariance matrix of the all estadi}
+\hlstd{cov.mat1} \hlkwb{<-} \hlkwd{cov}\hlstd{(}\hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{1}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{])}  \hlcom{## covariance matrix of the first estadi}
+\hlstd{cov.mat2} \hlkwb{<-} \hlkwd{cov}\hlstd{(}\hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{2}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{])}  \hlcom{## covariance matrix of the second estadi}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{itemize}
+\item $\tilde{\Sigma}$   de tota la poblaci?.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+##        long    amp
+## long 421.91  84.86
+## amp   84.86 245.04
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\newpage
+\item$\tilde{\Sigma_1}$  del estadi 1.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+##         long     amp
+## long 409.930  -1.316
+## amp   -1.316 306.194
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\item $\tilde{\Sigma_2}$  del estadi 2.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{verbatim}
+##         long     amp
+## long 409.930  -1.316
+## amp   -1.316 306.194
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\end{itemize}
+
+\subsection{Perform a multivariate comparison of mean groups (In this case you case use an R specific function)}
+
+Utilitzem la proba Hotelling's T$^{2}$ que tasta la hip?tesi :
+\\
+H$_{0}:\mu=\mu_{0}$
+\\
+H$_{1}:\mu\neq\mu_{0}$
+\\
+La f?rmula utilitzada en la seg?ent funci? ?s:
+\\
+T$^{2}$=$\sqrt{n}(\hat{X}-\mu_{0})S_{pooled}^{-1}\sqrt{n}(\hat{X}-\mu_{0}$)
+\\
+On,
+\\
+T$^{2} \sim\frac{(n-1)p}{(n-p)}F_{p,n-p}$
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Funci? test de hotelling}
+\hlstd{hotel2T2} \hlkwb{=} \hlkwa{function}\hlstd{(}\hlkwc{x1}\hlstd{,} \hlkwc{x2}\hlstd{,} \hlkwc{a} \hlstd{=} \hlnum{0.05}\hlstd{) \{}
+    \hlstd{p} \hlkwb{=} \hlkwd{ncol}\hlstd{(x1)}  \hlcom{## dimenisonality of the data}
+    \hlstd{n1} \hlkwb{=} \hlkwd{nrow}\hlstd{(x1)}  \hlcom{## size of the first sample}
+    \hlstd{n2} \hlkwb{=} \hlkwd{nrow}\hlstd{(x2)}  \hlcom{## size of the second sample}
+    \hlstd{n} \hlkwb{=} \hlstd{n1} \hlopt{+} \hlstd{n2}  \hlcom{## total sample size}
+    \hlstd{xbar1} \hlkwb{=} \hlkwd{apply}\hlstd{(x1,} \hlnum{2}\hlstd{, mean)}  \hlcom{## sample mean vector of the first sample}
+    \hlstd{xbar2} \hlkwb{=} \hlkwd{apply}\hlstd{(x2,} \hlnum{2}\hlstd{, mean)}  \hlcom{## sample mean vector of the second sample}
+    \hlstd{dbar} \hlkwb{=} \hlstd{xbar1} \hlopt{-} \hlstd{xbar2}  \hlcom{## difference of the two mean vectors}
+    \hlstd{v} \hlkwb{=} \hlstd{((n1} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlkwd{var}\hlstd{(x1)} \hlopt{+} \hlstd{(n2} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlkwd{var}\hlstd{(x2))}\hlopt{/}\hlstd{(n} \hlopt{-} \hlnum{2}\hlstd{)}  \hlcom{## pooled covariance matrix}
+    \hlstd{t2} \hlkwb{=} \hlstd{(n1} \hlopt{*} \hlstd{n2} \hlopt{*} \hlstd{dbar} \hlopt{%*%} \hlkwd{solve}\hlstd{(v)} \hlopt{%*%} \hlstd{dbar)}\hlopt{/}\hlstd{n}
+    \hlstd{test} \hlkwb{=} \hlstd{((n} \hlopt{-} \hlstd{p} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{t2)}\hlopt{/}\hlstd{((n} \hlopt{-} \hlnum{2}\hlstd{)} \hlopt{*} \hlstd{p)}  \hlcom{## test statistic}
+    \hlstd{crit} \hlkwb{=} \hlkwd{qf}\hlstd{(}\hlnum{1} \hlopt{-} \hlstd{a, p, n} \hlopt{-} \hlstd{p} \hlopt{-} \hlnum{1}\hlstd{)}  \hlcom{## critical value of the F distribution}
+    \hlstd{pvalue} \hlkwb{=} \hlnum{1} \hlopt{-} \hlkwd{pf}\hlstd{(test, p, n} \hlopt{-} \hlstd{p} \hlopt{-} \hlnum{1}\hlstd{)}  \hlcom{## p-value of the test statistic}
+    \hlkwd{list}\hlstd{(}\hlkwc{test} \hlstd{= test,} \hlkwc{critical} \hlstd{= crit,} \hlkwc{p.value} \hlstd{= pvalue,} \hlkwc{df1} \hlstd{= p,} \hlkwc{df2} \hlstd{= n} \hlopt{-}
+        \hlstd{p} \hlopt{-} \hlnum{1}\hlstd{)}
+\hlstd{\}}
+
+
+\hlcom{# Subgrup Estadi 1}
+\hlstd{x1} \hlkwb{<-} \hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{1}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{]}
+\hlcom{# Subgrup Estadi 2}
+\hlstd{x2} \hlkwb{<-} \hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{2}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{]}
+\hlstd{res} \hlkwb{<-} \hlkwd{hotel2T2}\hlstd{(x1, x2,} \hlkwc{a} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+Obtenim:
+\\
+T$^{2}= 38.76 \leq \frac{(167-1)p}{(167-2)}F_{2,164}$
+\\
+Aleshores ,
+38.76$\geq \frac{(167-1)p}{(167-2)}F_{2,164}$. Per tant, rebutgem la hip?tesis nul?la d'igualtat en les matrius de mitjanes.
+
+Una altra manera de comparar les mitjanes, ?s el an?lisi MANOVA. On la hipotesis nula ?s igualtat en la matriu de mitjanes dels diferents grups.
+\\
+Utilitzarem la t?cnica de Wilk's. On l'estad?stic ?s:
+\\
+$\Lambda *=\frac{\left | W \right |}{\left | B+W \right |}$
+\\
+\right |
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{groupF} \hlkwb{<-} \hlkwd{factor}\hlstd{(dat[,} \hlnum{3}\hlstd{])}
+\hlstd{Yvar} \hlkwb{<-} \hlkwd{as.matrix}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{])}
+\hlstd{x} \hlkwb{<-} \hlkwd{summary}\hlstd{(}\hlkwd{manova}\hlstd{(Yvar} \hlopt{~} \hlstd{groupF,} \hlkwc{data} \hlstd{= dat),} \hlkwc{test} \hlstd{=} \hlstr{"Wilks"}\hlstd{)}
+\hlstd{x}
+\end{alltt}
+\begin{verbatim}
+##            Df Wilks approx F num Df den Df  Pr(>F)    
+## groupF      1 0.679     38.8      2    164 1.6e-14 ***
+## Residuals 165                                         
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+En aquest cas tampoc podem assumir igualtat en les matrius de mitjanes.
+
+\subsection{Perform a multivariate comparison of covariance matrices.}
+Per compara els dos vectors de mitjanes, primerament utilitzarem el Box's test:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Box's test}
+\hlstd{cov.Mtest} \hlkwb{=} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,} \hlkwc{ina}\hlstd{,} \hlkwc{a} \hlstd{=} \hlnum{0.05}\hlstd{) \{}
+    \hlstd{p} \hlkwb{=} \hlkwd{ncol}\hlstd{(x)}  \hlcom{## dimension of the data set}
+    \hlstd{n} \hlkwb{=} \hlkwd{nrow}\hlstd{(x)}  \hlcom{## sample size}
+    \hlstd{k} \hlkwb{=} \hlkwd{max}\hlstd{(ina)}  \hlcom{## number of groups}
+    \hlstd{nu} \hlkwb{=} \hlkwd{rep}\hlstd{(}\hlnum{0}\hlstd{, k)}  \hlcom{## the sample size of each group will be stored here later}
+    \hlstd{pame} \hlkwb{=} \hlkwd{rep}\hlstd{(}\hlnum{0}\hlstd{, k)}  \hlcom{## the determinant of each covariance will be stored here}
+    \hlcom{## t calculate the covariance matrix of each group}
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{nu[i]} \hlkwb{=} \hlkwd{sum}\hlstd{(ina} \hlopt{==} \hlstd{i)}
+    \hlstd{\}}
+    \hlstd{z} \hlkwb{=} \hlkwd{cbind}\hlstd{(x, ina)}
+    \hlstd{mat} \hlkwb{=} \hlkwd{array}\hlstd{(}\hlkwc{dim} \hlstd{=} \hlkwd{c}\hlstd{(p} \hlopt{+} \hlnum{1}\hlstd{, p} \hlopt{+} \hlnum{1}\hlstd{, k))}
+    \hlstd{mat1} \hlkwb{=} \hlkwd{array}\hlstd{(}\hlkwc{dim} \hlstd{=} \hlkwd{c}\hlstd{(p, p, k))}
+
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{mat[, , i]} \hlkwb{=} \hlkwd{cov}\hlstd{(z[ina} \hlopt{==} \hlstd{i, ])}
+    \hlstd{\}}
+    \hlstd{mat} \hlkwb{=} \hlstd{mat[}\hlnum{1}\hlopt{:}\hlstd{p,} \hlnum{1}\hlopt{:}\hlstd{p,} \hlnum{1}\hlopt{:}\hlstd{k]}
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{mat1[, , i]} \hlkwb{=} \hlstd{mat[, , i]} \hlopt{*} \hlstd{nu[i]}
+    \hlstd{\}}
+
+    \hlcom{## calculate the pooled covariance matrix}
+    \hlstd{Sp} \hlkwb{=} \hlkwd{apply}\hlstd{(mat1,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{, sum)}
+    \hlstd{Sp} \hlkwb{=} \hlstd{Sp}\hlopt{/}\hlstd{(n} \hlopt{-} \hlstd{k)}
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlcom{## this 'for' function calculates the determinant of each covariance matrix}
+        \hlstd{pame[i]} \hlkwb{=} \hlkwd{det}\hlstd{((nu[i]}\hlopt{/}\hlstd{(nu[i]} \hlopt{-} \hlnum{1}\hlstd{))} \hlopt{*} \hlstd{mat[, , i])}
+    \hlstd{\}}
+    \hlstd{pamela} \hlkwb{=} \hlkwd{det}\hlstd{(Sp)}  \hlcom{## determinant of the pooled covariance matrix}
+
+    \hlcom{## construct the test statistic}
+    \hlstd{test1} \hlkwb{=} \hlkwd{log}\hlstd{(pamela}\hlopt{/}\hlstd{pame)}
+    \hlstd{test2} \hlkwb{=} \hlkwd{sum}\hlstd{((nu} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{test1)}
+    \hlstd{gama1} \hlkwb{=} \hlstd{(}\hlnum{2} \hlopt{*} \hlstd{(p}\hlopt{^}\hlnum{2}\hlstd{)} \hlopt{+} \hlnum{3} \hlopt{*} \hlstd{p} \hlopt{-} \hlnum{1}\hlstd{)}\hlopt{/}\hlstd{(}\hlnum{6} \hlopt{*} \hlstd{(p} \hlopt{+} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{(k} \hlopt{-} \hlnum{1}\hlstd{))}
+    \hlstd{gama2} \hlkwb{=} \hlstd{gama1} \hlopt{*} \hlstd{(}\hlkwd{sum}\hlstd{(}\hlnum{1}\hlopt{/}\hlstd{(nu} \hlopt{-} \hlnum{1}\hlstd{))} \hlopt{-} \hlnum{1}\hlopt{/}\hlstd{(n} \hlopt{-} \hlstd{k))}
+    \hlstd{gama} \hlkwb{=} \hlnum{1} \hlopt{-} \hlstd{gama1} \hlopt{*} \hlstd{gama2}
+    \hlstd{test} \hlkwb{=} \hlstd{gama} \hlopt{*} \hlstd{test2}  \hlcom{## this is the M}
+    \hlstd{df} \hlkwb{=} \hlnum{0.5} \hlopt{*} \hlstd{p} \hlopt{*} \hlstd{(p} \hlopt{+} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{(k} \hlopt{-} \hlnum{1}\hlstd{)}  \hlcom{## degrees of freedom of the chi-square distribution}
+    \hlstd{pvalue} \hlkwb{=} \hlnum{1} \hlopt{-} \hlkwd{pchisq}\hlstd{(test, df)}  \hlcom{## p-value of the test statistic}
+    \hlstd{crit} \hlkwb{=} \hlkwd{qchisq}\hlstd{(}\hlnum{1} \hlopt{-} \hlstd{a, df)}  \hlcom{#critical value of the chi-square distribution}
+    \hlkwd{list}\hlstd{(}\hlkwc{M.test} \hlstd{= test,} \hlkwc{degrees} \hlstd{= df,} \hlkwc{critical} \hlstd{= crit,} \hlkwc{p.value} \hlstd{= pvalue)}
+\hlstd{\}}
+
+
+\hlstd{res1} \hlkwb{<-} \hlkwd{cov.Mtest}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{],} \hlkwd{as.numeric}\hlstd{(dat[,} \hlnum{3}\hlstd{]),} \hlkwc{a} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Tamb? utilitzem el test de la m?xima likelihood per comparar les matrius de covari?ncies.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Test de la m?xima likelihod}
+\hlstd{cov.likel} \hlkwb{=} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{,} \hlkwc{ina}\hlstd{,} \hlkwc{a} \hlstd{=} \hlnum{0.05}\hlstd{) \{}
+    \hlstd{p} \hlkwb{=} \hlkwd{ncol}\hlstd{(x)}  \hlcom{## dimension of the data set}
+    \hlstd{n} \hlkwb{=} \hlkwd{nrow}\hlstd{(x)}  \hlcom{## sample size}
+    \hlstd{k} \hlkwb{=} \hlkwd{max}\hlstd{(ina)}  \hlcom{## number of groups}
+    \hlstd{nu} \hlkwb{=} \hlkwd{rep}\hlstd{(}\hlnum{0}\hlstd{, k)}  \hlcom{## the sample size of each group will be stored later}
+    \hlstd{pame} \hlkwb{=} \hlkwd{rep}\hlstd{(}\hlnum{0}\hlstd{, k)}  \hlcom{## the determinant of each covariance will be stored}
+
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{nu[i]} \hlkwb{=} \hlkwd{sum}\hlstd{(ina} \hlopt{==} \hlstd{i)}
+    \hlstd{\}}
+    \hlstd{z} \hlkwb{=} \hlkwd{cbind}\hlstd{(x, ina)}
+    \hlstd{mat} \hlkwb{=} \hlkwd{array}\hlstd{(}\hlkwc{dim} \hlstd{=} \hlkwd{c}\hlstd{(p} \hlopt{+} \hlnum{1}\hlstd{, p} \hlopt{+} \hlnum{1}\hlstd{, k))}
+    \hlstd{mat1} \hlkwb{=} \hlkwd{array}\hlstd{(}\hlkwc{dim} \hlstd{=} \hlkwd{c}\hlstd{(p, p, k))}
+
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{mat[, , i]} \hlkwb{=} \hlkwd{cov}\hlstd{(z[ina} \hlopt{==} \hlstd{i, ])}
+    \hlstd{\}}
+    \hlstd{mat} \hlkwb{=} \hlstd{mat[}\hlnum{1}\hlopt{:}\hlstd{p,} \hlnum{1}\hlopt{:}\hlstd{p,} \hlnum{1}\hlopt{:}\hlstd{k]}
+
+    \hlcom{## create the pooled covariance matrix}
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{mat1[, , i]} \hlkwb{=} \hlstd{mat[, , i]} \hlopt{*} \hlstd{nu[i]}
+    \hlstd{\}}
+    \hlstd{Sp} \hlkwb{=} \hlkwd{apply}\hlstd{(mat1,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{, sum)}
+    \hlstd{Sp} \hlkwb{=} \hlstd{Sp}\hlopt{/}\hlstd{n}
+
+    \hlcom{## calculate the determinant of each covariance matrix}
+    \hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlstd{k) \{}
+        \hlstd{pame[i]} \hlkwb{=} \hlkwd{det}\hlstd{(mat[, , i])}
+    \hlstd{\}}
+    \hlstd{pamela} \hlkwb{=} \hlkwd{det}\hlstd{(Sp)}  \hlcom{## determinant of the pooled covariance matrix}
+
+    \hlstd{test1} \hlkwb{=} \hlkwd{log}\hlstd{(pamela}\hlopt{/}\hlstd{pame)}  \hlcom{## divides the determinant of the pooled covariance}
+    \hlcom{## matrix with every covariance matrix}
+    \hlstd{test} \hlkwb{=} \hlkwd{sum}\hlstd{(nu} \hlopt{*} \hlstd{test1)}  \hlcom{## test statistic}
+    \hlstd{df} \hlkwb{=} \hlnum{0.5} \hlopt{*} \hlstd{p} \hlopt{*} \hlstd{(p} \hlopt{+} \hlnum{1}\hlstd{)} \hlopt{*} \hlstd{(k} \hlopt{-} \hlnum{1}\hlstd{)}  \hlcom{## degrees of freedom of the asymptotic chi-square}
+    \hlstd{pvalue} \hlkwb{=} \hlnum{1} \hlopt{-} \hlkwd{pchisq}\hlstd{(test, df)}  \hlcom{## p-value of the test statistic}
+    \hlstd{crit} \hlkwb{=} \hlkwd{qchisq}\hlstd{(}\hlnum{1} \hlopt{-} \hlstd{a, df)}  \hlcom{#critical value of the chi-square distribution}
+    \hlkwd{list}\hlstd{(}\hlkwc{test} \hlstd{= test,} \hlkwc{degrees} \hlstd{= df,} \hlkwc{critical} \hlstd{= crit,} \hlkwc{p.value} \hlstd{= pvalue)}
+\hlstd{\}}
+
+
+\hlstd{res2} \hlkwb{<-} \hlkwd{cov.likel}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{],} \hlkwd{as.numeric}\hlstd{(dat[,} \hlnum{3}\hlstd{]),} \hlkwc{a} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+% latex table generated in R 3.0.1 by xtable 1.7-1 package
+% Wed Jun 25 14:26:42 2014
+\begin{table}[ht]
+\centering
+\caption{Igualtat en la matriu de cov?riancies} 
+\begin{tabular}{rrrrr}
+  \hline
+ & Estad?stic & G.ll. & Valor Cr?tic & P-Valor \\ 
+  \hline
+Box's test & 26.338 & 3.000 & 7.815 & 0.000 \\ 
+  Test de la m?xima likelihood & 26.781 & 3.000 & 7.815 & 0.000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{Construct the Fisher's linear discriminant function and the quadratic discriminant function using your own functions}
+\subsubsection{Funci? lineal de Fisher}
+
+Per tal de poder realitzar la funci? lineal de Fisher, calculem S$_{pooled}$ amb la f?rmula:
+\begin{center}
+S$_{pooled}$=$\frac{(n_{1}-1)S_{1}+(n_{2}-1)S_{2}}{n-2}$
+\end{center}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Estadi 1}
+\hlstd{x1} \hlkwb{<-} \hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{1}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{]}
+\hlcom{# Estadi 2}
+\hlstd{x2} \hlkwb{<-} \hlkwd{subset}\hlstd{(dat, estadi} \hlopt{==} \hlnum{2}\hlstd{)[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{]}
+\hlcom{# Dimensi? de les dades}
+\hlstd{p} \hlkwb{=} \hlkwd{ncol}\hlstd{(x1)}
+\hlcom{# Mostra en el estadi 1}
+\hlstd{n1} \hlkwb{=} \hlkwd{nrow}\hlstd{(x1)}
+\hlcom{# Mostra en el estadi 2}
+\hlstd{n2} \hlkwb{=} \hlkwd{nrow}\hlstd{(x2)}
+\hlcom{# Total mostra}
+\hlstd{n} \hlkwb{=} \hlstd{n1} \hlopt{+} \hlstd{n2}
+\hlcom{# Vector mitjana mostral estadi 1}
+\hlstd{xbar1} \hlkwb{=} \hlkwd{as.matrix}\hlstd{(}\hlkwd{rbind}\hlstd{(}\hlkwd{apply}\hlstd{(x1,} \hlnum{2}\hlstd{, mean)))}  \hlcom{#}
+\hlcom{# Vector mitjana mostral estadi 2}
+\hlstd{xbar2} \hlkwb{=} \hlkwd{as.matrix}\hlstd{(}\hlkwd{rbind}\hlstd{(}\hlkwd{apply}\hlstd{(x2,} \hlnum{2}\hlstd{, mean)))}
+\hlcom{# Diferencia vector de mitjanes}
+\hlstd{dbar} \hlkwb{=} \hlstd{xbar1} \hlopt{-} \hlstd{xbar2}
+\hlcom{## pooled covariance matrix}
+\hlstd{v} \hlkwb{=} \hlstd{((n1} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlkwd{var}\hlstd{(x1)} \hlopt{+} \hlstd{(n2} \hlopt{-} \hlnum{1}\hlstd{)} \hlopt{*} \hlkwd{var}\hlstd{(x2))}\hlopt{/}\hlstd{(n} \hlopt{-} \hlnum{2}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Obtenim:
+
+\begin{center}
+
+$\hat{S}_{pooled}$=$\begin{pmatrix}
+301.4 & 31.02\\ 
+31.02 & 222.52
+\end{pmatrix}$
+\end{center}
+\\
+\\
+Per obtenir la funci? discriminant de fisher calculem:
+\begin{center}
+ Y=($\mu_{1}-\mu_{1}$)'S$_{pooled}^{-1}$x
+\end{center}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Inversa de Spooled}
+\hlstd{v_inverse} \hlkwb{<-} \hlkwd{solve}\hlstd{(v)}
+\hlcom{# Funci? discriminant de fisher}
+\hlstd{y} \hlkwb{=} \hlstd{dbar} \hlopt{%*%} \hlstd{v_inverse}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+El resultat d'aquest ?s:
+\begin{pmatrix}
+-22.1439 &-9.7782
+\end{pmatrix}
+\begin{pmatrix}
+0.0034 & -0.0005 \\ 
+ -0.00054  &0.0046
+\end{pmatrix}
+\begin{pmatrix}
+X$_{1}$\\ X$_{2}$
+
+\end{pmatrix}=
+\\
+=-0.06995286X$_{1}$ -0.03418953X$_{2}$
+
+Per tal d 'assignar les noves observacions, apliquem la regla:
+\begin{itemize}
+\item X$_{0}$ en el estadi 1 si : ($\mu_2 -\mu_1$)' $\Sigma^{-1}X_{0} -m\leq$0 
+\item X$_{0}$ en el estadi 2 si : ($\mu_2 -\mu_1$)' $\Sigma^{-1}X_{0} -m\ge$0  
+\end{itemize}
+on,
+\\
+$\tilde{m}$=($\mu_{1}-\mu_{1}$)'S$_{pooled}^{-1}$($\mu_{1}+\mu_{1}$)
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{lda_fisher} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{xbar1}\hlstd{,} \hlkwc{xbar2}\hlstd{,} \hlkwc{v_inverse}\hlstd{,} \hlkwc{newdat}\hlstd{) \{}
+    \hlcom{# Calcula la diferencia dels vectors de mitjanes}
+    \hlstd{dbar} \hlkwb{<-} \hlstd{xbar2} \hlopt{-} \hlstd{xbar1}
+    \hlcom{# Calcula fisher}
+    \hlstd{y} \hlkwb{=} \hlstd{dbar} \hlopt{%*%} \hlstd{v_inverse}
+    \hlstd{m} \hlkwb{<-} \hlstd{(dbar} \hlopt{%*%} \hlstd{v_inverse} \hlopt{%*%} \hlkwd{t}\hlstd{(xbar2} \hlopt{+} \hlstd{xbar1))}\hlopt{/}\hlnum{2}
+
+
+    \hlstd{d} \hlkwb{<-} \hlstd{y} \hlopt{%*%} \hlkwd{t}\hlstd{(newdat)}
+    \hlstd{xo} \hlkwb{<-} \hlkwd{ifelse}\hlstd{(d} \hlopt{-} \hlstd{m} \hlopt{>=} \hlnum{0}\hlstd{,} \hlnum{2}\hlstd{,} \hlkwd{ifelse}\hlstd{(d} \hlopt{-} \hlstd{m} \hlopt{<} \hlnum{0}\hlstd{,} \hlnum{1}\hlstd{,} \hlnum{0}\hlstd{))}
+    \hlstd{x} \hlkwb{<-} \hlkwd{c}\hlstd{(xo, d)}
+
+    \hlkwd{return}\hlstd{(x)}
+\hlstd{\}}
+\hlstd{lda} \hlkwb{<-} \hlkwa{NULL}
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlkwd{nrow}\hlstd{(dat)) \{}
+    \hlstd{lda} \hlkwb{<-} \hlkwd{rbind}\hlstd{(lda,} \hlkwd{lda_fisher}\hlstd{(xbar1, xbar2, v_inverse,} \hlkwd{as.matrix}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{][i,}
+        \hlstd{])))}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{p1} \hlkwb{<-} \hlkwd{nrow}\hlstd{(x1)}\hlopt{/}\hlkwd{nrow}\hlstd{(dat)}
+\hlstd{p2} \hlkwb{<-} \hlkwd{nrow}\hlstd{(x2)}\hlopt{/}\hlkwd{nrow}\hlstd{(dat)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+En aquest cas no em tingut en compte les probabilitats a priori, que en aquest cas s?n diferents pels dos grups.Segons el llibre {\bf{Applied Multivariate Statistical Analysis}} de Johnson utilitzarem la seg?ent regla per assignar noves observacions en els estadis:
+\begin{itemize}
+\item p$_{1}$=\frac{n_{1}}{n}$ = 0.4551
+\item p$_{2}$=\frac{n_{1}}{n}$ = 0.5449
+\end{itemize}
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{p1} \hlkwb{<-} \hlkwd{nrow}\hlstd{(x1)}\hlopt{/}\hlkwd{nrow}\hlstd{(dat)}
+\hlstd{p2} \hlkwb{<-} \hlkwd{nrow}\hlstd{(x2)}\hlopt{/}\hlkwd{nrow}\hlstd{(dat)}
+\hlstd{lda_fisher_priori} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{xbar1}\hlstd{,} \hlkwc{xbar2}\hlstd{,} \hlkwc{v_inverse}\hlstd{,} \hlkwc{newdat}\hlstd{,} \hlkwc{p1}\hlstd{,} \hlkwc{p2}\hlstd{) \{}
+    \hlcom{# Calcula la diferencia dels vectors de mitjanes}
+    \hlstd{dbar} \hlkwb{<-} \hlstd{xbar2} \hlopt{-} \hlstd{xbar1}
+    \hlcom{# Calcula fisher}
+    \hlstd{y} \hlkwb{=} \hlstd{dbar} \hlopt{%*%} \hlstd{v_inverse}
+    \hlstd{m} \hlkwb{<-} \hlkwd{log}\hlstd{(p1}\hlopt{/}\hlstd{p2)}
+
+
+    \hlstd{d} \hlkwb{<-} \hlstd{y} \hlopt{%*%} \hlkwd{t}\hlstd{(newdat)}
+    \hlstd{xo} \hlkwb{<-} \hlkwd{ifelse}\hlstd{(d} \hlopt{-} \hlstd{m} \hlopt{>=} \hlnum{0}\hlstd{,} \hlnum{1}\hlstd{,} \hlkwd{ifelse}\hlstd{(d} \hlopt{-} \hlstd{m} \hlopt{<} \hlnum{0}\hlstd{,} \hlnum{2}\hlstd{,} \hlnum{0}\hlstd{))}
+
+    \hlstd{x} \hlkwb{<-} \hlkwd{c}\hlstd{(xo, d)}
+
+    \hlkwd{return}\hlstd{(x)}
+\hlstd{\}}
+\hlstd{lda_priori} \hlkwb{<-} \hlkwa{NULL}
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlkwd{nrow}\hlstd{(dat)) \{}
+    \hlstd{lda_priori} \hlkwb{<-} \hlkwd{rbind}\hlstd{(lda_priori,} \hlkwd{lda_fisher_priori}\hlstd{(xbar1, xbar2, v_inverse,}
+        \hlkwd{as.matrix}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{][i, ]), p1, p2))}
+\hlstd{\}}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+\subsubsection{Funci? quad?tica discriminant}
+Per tal de portar a terme la funci? discriminant quadr?tica utilitzarem la regla:
+\\
+$\frac{1}{2}x_{0}'(S_{1}^{-1}-S_{2}^{-1})x_0}+(\hat{x}_{1}'S_{1}^{-1}-{\hat{x}_{2}'S_{2}^{-1})x_{0}-k\geq log(\frac{p_1}{p{2}})$
+\\
+on,
+\\
+k=$\frac{1}{2}\left ( \frac{\left | S_{1} \right |}{\left | S_{2} \right |} \right )+\frac{1}{2}(\hat{x}_{1}'S_{1}^{-1}\hat{x}_{1}-\hat{x}_{2}'S_{2}^{-1}\hat{x}_{2})$
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# S1}
+\hlstd{s1} \hlkwb{<-} \hlkwd{cov}\hlstd{(x1)}
+\hlcom{# s2}
+\hlstd{s2} \hlkwb{<-} \hlkwd{cov}\hlstd{(x2)}
+\hlstd{p1} \hlkwb{<-} \hlkwd{nrow}\hlstd{(x1)}\hlopt{/}\hlkwd{nrow}\hlstd{(dat)}
+\hlstd{p2} \hlkwb{<-} \hlkwd{nrow}\hlstd{(x2)}\hlopt{/}\hlkwd{nrow}\hlstd{(dat)}
+\hlstd{k} \hlkwb{<-} \hlnum{1}\hlopt{/}\hlnum{2} \hlopt{*} \hlkwd{log}\hlstd{(}\hlkwd{det}\hlstd{(s1)}\hlopt{/}\hlkwd{det}\hlstd{(s2))} \hlopt{+} \hlnum{1}\hlopt{/}\hlnum{2} \hlopt{*} \hlstd{((xbar1)} \hlopt{%*%} \hlkwd{solve}\hlstd{(s1)} \hlopt{%*%} \hlkwd{t}\hlstd{(xbar1)} \hlopt{-}
+    \hlstd{xbar2} \hlopt{%*%} \hlkwd{solve}\hlstd{(s2)} \hlopt{%*%} \hlkwd{t}\hlstd{(xbar2))}
+\hlstd{qda} \hlkwb{<-} \hlkwa{NULL}
+\hlstd{X} \hlkwb{<-} \hlkwd{as.matrix}\hlstd{(dat[,} \hlnum{1}\hlopt{:}\hlnum{2}\hlstd{])}
+\hlkwa{for} \hlstd{(i} \hlkwa{in} \hlnum{1}\hlopt{:}\hlkwd{nrow}\hlstd{(dat)) \{}
+    \hlstd{yq} \hlkwb{<-} \hlopt{-}\hlnum{1}\hlopt{/}\hlnum{2} \hlopt{*} \hlkwd{t}\hlstd{(X[i, ])} \hlopt{%*%} \hlstd{(}\hlkwd{solve}\hlstd{(s1)} \hlopt{-} \hlkwd{solve}\hlstd{(s2))} \hlopt{%*%} \hlstd{X[i, ]} \hlopt{+} \hlstd{(xbar1} \hlopt{%*%}
+        \hlkwd{solve}\hlstd{(s1)} \hlopt{-} \hlstd{xbar2} \hlopt{%*%} \hlkwd{solve}\hlstd{(s2))} \hlopt{%*%} \hlstd{X[i, ]}
+    \hlstd{xo} \hlkwb{<-} \hlkwd{ifelse}\hlstd{(yq} \hlopt{-} \hlstd{k} \hlopt{>=} \hlkwd{log}\hlstd{(p1}\hlopt{/}\hlstd{p2),} \hlnum{1}\hlstd{,} \hlkwd{ifelse}\hlstd{(yq} \hlopt{-} \hlstd{k} \hlopt{<} \hlkwd{log}\hlstd{(p1}\hlopt{/}\hlstd{p2),} \hlnum{2}\hlstd{,} \hlnum{NA}\hlstd{))}
+    \hlstd{qda} \hlkwb{<-} \hlkwd{rbind}\hlstd{(qda,} \hlkwd{cbind}\hlstd{(yq, xo))}
+\hlstd{\}}
+\hlstd{res} \hlkwb{<-} \hlkwd{cbind}\hlstd{(dat, qda[,} \hlnum{2}\hlstd{])}
+\hlkwd{table}\hlstd{(res[,} \hlnum{3}\hlstd{], res[,} \hlnum{4}\hlstd{])}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+\subsection{Show the derived discriminant functions on a scatter plot of the original data.}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{jpeg}\hlstd{(}\hlstr{"./fig1.jpg"}\hlstd{)}
+\hlstd{x} \hlkwb{<-} \hlkwd{cbind}\hlstd{(lda, dat[,} \hlnum{3}\hlstd{])}
+
+\hlkwd{plot}\hlstd{(x[,} \hlnum{2}\hlstd{],} \hlkwc{bty} \hlstd{=} \hlstr{"n"}\hlstd{,} \hlkwc{type} \hlstd{=} \hlstr{"n"}\hlstd{,} \hlkwc{main} \hlstd{=} \hlstr{"Funci? discriminant de Fisher"}\hlstd{,}
+    \hlkwc{ylab} \hlstd{=} \hlstr{"first linear discriminant"}\hlstd{,} \hlkwc{xlab} \hlstd{=} \hlstr{""}\hlstd{)}
+\hlkwd{points}\hlstd{(}\hlkwd{subset}\hlstd{(x[,} \hlnum{2}\hlstd{], x[,} \hlnum{3}\hlstd{]} \hlopt{==} \hlnum{1}\hlstd{),} \hlkwc{col} \hlstd{=} \hlstr{"orangered"}\hlstd{,} \hlkwc{pch} \hlstd{=} \hlnum{20}\hlstd{)}
+\hlkwd{points}\hlstd{(}\hlkwd{subset}\hlstd{(x[,} \hlnum{2}\hlstd{], x[,} \hlnum{3}\hlstd{]} \hlopt{==} \hlnum{2}\hlstd{),} \hlkwc{col} \hlstd{=} \hlstr{"blue"}\hlstd{,} \hlkwc{pch} \hlstd{=} \hlnum{20}\hlstd{)}
+\hlkwd{legend}\hlstd{(}\hlstr{"bottomright"}\hlstd{,} \hlkwd{c}\hlstd{(}\hlstr{"Estadi 1"}\hlstd{,} \hlstr{"Estadi 2"}\hlstd{),} \hlkwc{col} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"orangered"}\hlstd{,} \hlstr{"blue"}\hlstd{),}
+    \hlkwc{pch} \hlstd{=} \hlnum{20}\hlstd{,} \hlkwc{bty} \hlstd{=} \hlstr{"n"}\hlstd{)}
+
+\hlkwd{dev.off}\hlstd{()}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+No ?s pot realitzar el gr?fic de la funci? discriminant quadr?tica, ja que es basa en un score/ regla d'assignaci?.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=10cm]{./fig1.jpg}
+\end{center}
+\end{figure}
+
+\subsection{Estimate the misclassification rate.}
+\subsubsection{Funci? lineal de Fisher}
+No tinguen en compte les probabilitats a priori:
+\begin{kframe}
+\begin{alltt}
+\hlstd{ct} \hlkwb{<-} \hlkwd{table}\hlstd{(dat}\hlopt{$}\hlstd{estadi, lda[,} \hlnum{1}\hlstd{])}
+\hlkwd{colnames}\hlstd{(ct)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Allocated to Estadi 1"}\hlstd{,} \hlstr{"Allocated to Estadi 2"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(ct)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Is  Estadi 1"}\hlstd{,} \hlstr{"Is Estadi 2"}\hlstd{)}
+\hlstd{x} \hlkwb{<-} \hlstd{ct[}\hlnum{1}\hlstd{,} \hlnum{2}\hlstd{]} \hlopt{+} \hlstd{ct[}\hlnum{2}\hlstd{,} \hlnum{1}\hlstd{]}  \hlcom{#Misclassified}
+\hlstd{AR} \hlkwb{<-} \hlkwd{xtable}\hlstd{(ct,} \hlkwc{caption} \hlstd{=} \hlstr{"Misclassification"}\hlstd{)}
+\hlkwd{print}\hlstd{(AR,} \hlkwc{sanitize.text.function} \hlstd{=} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{) \{}
+    \hlstd{x}
+\hlstd{\},} \hlkwc{caption.placement} \hlstd{=} \hlstr{"top"}\hlstd{,} \hlkwc{include.rownames} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\end{kframe}% latex table generated in R 3.0.1 by xtable 1.7-1 package
+% Wed Jun 25 14:26:43 2014
+\begin{table}[ht]
+\centering
+\caption{Misclassification} 
+\begin{tabular}{rrr}
+  \hline
+ & Allocated to Estadi 1 & Allocated to Estadi 2 \\ 
+  \hline
+Is  Estadi 1 &  61 &  15 \\ 
+  Is Estadi 2 &  21 &  70 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+Tenim un total de  36  individus mal classificats
+\\
+Que correspon a una proporci? del mal classificats de: 0.22
+\\
+\\
+\newpage
+Tinguen en compte les probabilitats a priori:
+\begin{kframe}
+\begin{alltt}
+\hlstd{ct} \hlkwb{<-} \hlkwd{table}\hlstd{(dat}\hlopt{$}\hlstd{estadi, lda_priori[,} \hlnum{1}\hlstd{])}
+\hlkwd{colnames}\hlstd{(ct)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Allocated to Estadi 1"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(ct)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Is  Estadi 1"}\hlstd{,} \hlstr{"Is Estadi 2"}\hlstd{)}
+\hlstd{x} \hlkwb{<-} \hlnum{0}  \hlcom{#Misclassified}
+\hlstd{AR} \hlkwb{<-} \hlkwd{xtable}\hlstd{(ct,} \hlkwc{caption} \hlstd{=} \hlstr{"Misclassification"}\hlstd{)}
+\hlkwd{print}\hlstd{(AR,} \hlkwc{sanitize.text.function} \hlstd{=} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{) \{}
+    \hlstd{x}
+\hlstd{\},} \hlkwc{caption.placement} \hlstd{=} \hlstr{"top"}\hlstd{,} \hlkwc{include.rownames} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\end{kframe}% latex table generated in R 3.0.1 by xtable 1.7-1 package
+% Wed Jun 25 14:26:43 2014
+\begin{table}[ht]
+\centering
+\caption{Misclassification} 
+\begin{tabular}{rr}
+  \hline
+ & Allocated to Estadi 1 \\ 
+  \hline
+Is  Estadi 1 &  76 \\ 
+  Is Estadi 2 &  91 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+Tenim un total de  0  individus mal classificats
+\\
+Que correspon a una proporci? del mal classificats de: 0
+\\
+Utilitzant les probabilitat a priori, trobem que no classifiquem malament cap individu.
+
+\subsubsection{Funci? quad?tica discriminant}
+
+\begin{kframe}
+\begin{alltt}
+\hlstd{ct} \hlkwb{<-} \hlkwd{table}\hlstd{(dat}\hlopt{$}\hlstd{estadi, qda[,} \hlnum{2}\hlstd{])}
+\hlkwd{colnames}\hlstd{(ct)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Allocated to Estadi 1"}\hlstd{,} \hlstr{"Allocated to Estadi 2"}\hlstd{)}
+\hlkwd{rownames}\hlstd{(ct)} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"Is  Estadi 1"}\hlstd{,} \hlstr{"Is Estadi 2"}\hlstd{)}
+\hlstd{x} \hlkwb{<-} \hlstd{ct[}\hlnum{1}\hlstd{,} \hlnum{2}\hlstd{]} \hlopt{+} \hlstd{ct[}\hlnum{2}\hlstd{,} \hlnum{1}\hlstd{]}  \hlcom{#Misclassified}
+\hlstd{AR} \hlkwb{<-} \hlkwd{xtable}\hlstd{(ct,} \hlkwc{caption} \hlstd{=} \hlstr{"Misclassification"}\hlstd{)}
+\hlkwd{print}\hlstd{(AR,} \hlkwc{sanitize.text.function} \hlstd{=} \hlkwa{function}\hlstd{(}\hlkwc{x}\hlstd{) \{}
+    \hlstd{x}
+\hlstd{\},} \hlkwc{caption.placement} \hlstd{=} \hlstr{"top"}\hlstd{,} \hlkwc{include.rownames} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\end{kframe}% latex table generated in R 3.0.1 by xtable 1.7-1 package
+% Wed Jun 25 14:26:43 2014
+\begin{table}[ht]
+\centering
+\caption{Misclassification} 
+\begin{tabular}{rrr}
+  \hline
+ & Allocated to Estadi 1 & Allocated to Estadi 2 \\ 
+  \hline
+Is  Estadi 1 &  64 &  12 \\ 
+  Is Estadi 2 &  18 &  73 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
+Tenim un total de  30  individus mal classificats
+\\
+Que correspon a una proporci? del mal classificats de: 0.18
+
+\end{document}

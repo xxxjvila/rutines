@@ -1,0 +1,119 @@
+\documentclass[a4paper,titlepage,12pt]{article}
+\usepackage[catalan]{babel}
+\usepackage{hyperref}
+\usepackage[pdftex]{color,graphicx,epsfig}
+\DeclareGraphicsRule{.pdftex}{pdf}{.pdftex}{}
+\usepackage{amssymb,amsmath}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{lscape}
+\usepackage{Sweave}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=1cm,right=1cm]{geometry}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym} 
+\usepackage{longtable}
+
+%%% MU
+%\usepackage{mathptmx} fa times new roman
+\usepackage{eso-pic} % permet posar un fons a les pàgines
+\usepackage{helvet}% per posar Arial
+\renewcommand{\familydefault}{\sfdefault} % posa Arial
+\usepackage[none]{hyphenat} % no hyphena
+\setlength\parindent{0pt} % treu el marge a l'esquerra
+
+\fancypagestyle{plain}{
+\fancyfoot[C]{P\'agina \thepage}
+\fancyhead[L]{
+\setkeys{Gin}{width=0.6\textwidth}
+\includegraphics{../../logos/logoMUhorizontal.jpg}
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{Esquerra}
+\fancyhead[C]{\today}
+\fancyhead[R]{Dreta \quad \thepage}
+\renewcommand{\headrulewidth}{0.5pt} 
+\addtolength{\headheight}{5pt}
+
+% to change margings in itemize
+\newenvironment{itemize2}
+  {\begin{itemize}
+    \setlength{\itemsep}{-0.35cm}
+    \setlength{\parskip}{10pt}}
+  {\end{itemize}}
+
+%% modifica el verbatim del Sweave
+\definecolor{Soutput*}{rgb}{1,0,0}
+\definecolor{Sinput}{rgb}{0,0,1}
+\definecolor{Scode}{rgb}{0,0,1}
+\definecolor{Soutput}{rgb}{1,0,0}
+
+\DefineVerbatimEnvironment{Verbatim*}{Verbatim}{formatcom={\color{Soutput*}},fontsize=\scriptsize \selectfont}
+\definecolor{Scode*}{rgb}{0,0,1}
+\DefineVerbatimEnvironment{Verbatim**}{Verbatim}{formatcom={\color{Scode*}},fontsize=\normalsize \selectfont}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{formatcom={\color{Sinput}},fontsize=\normalsize}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{formatcom={\color{Soutput}},fontsize=\footnotesize}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{formatcom={\color{Scode}},fontsize=\scriptsize}
+
+
+\SweaveOpts{concordance=FALSE}
+
+
+\title{\bf ESTUDI aaaa\\
+Part bbbbb\\
+subpart cccc} 
+\vspace{1cm}
+
+\author{Joan Vila\,$^{1,2,3}$\\
+\scriptsize $^{1}$IMIM (Hospital del Mar Medical Research Institute), Barcelona\\
+\scriptsize $^{2}$CIBER Epidemiology and Public Health (CIBERESP)\\
+\scriptsize $^{3}$Escola Universitària Infermeria i Teràpia Ocupacional (EUIT)\\
+\vspace{1cm}
+\texttt{jvila@imim.es}
+}
+
+\renewcommand{\tablename}{\textbf{Taula}}
+\renewcommand{\listtablename}{\'{I}ndex de taules} 
+\renewcommand{\listfigurename}{\'{I}ndex de figures}
+
+\usepackage{longtable}
+
+
+\begin{document}
+
+\maketitle
+
+\vspace{2.5cm}
+
+\newpage
+\tableofcontents
+\
+\\
+\listoftables
+\
+\\
+\listoffigures
+
+\newpage
+Hola Rafa
+<<echo =TRUE, results=verbatim>>=
+a<-c(12, 34, 45, 65)
+mean(a)
+@
+
+La mitjana ha sigut \Sexpr{mean(a)}.
+
+%\setkeys{Gin}{width=1.2\textwidth}
+%\begin{figure}[H]
+%\begin{center}
+%\caption{Age by country}
+%\includegraphics[]{./figs/fig01.pdf}
+%\end{center}
+%\end{figure}
+
+\end{document}

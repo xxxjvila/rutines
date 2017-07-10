@@ -1,0 +1,533 @@
+\documentclass[a4paper,titlepage,12pt]{article}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{longtable}
+%\usepackage[catalan]{babel}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+%\usepackage[ansinew]{inputenc}
+\usepackage{hyperref}
+%\usepackage[pdftex]{color,graphicx,epsfig}
+\DeclareGraphicsRule{.pdftex}{pdf}{.pdftex}{}
+\usepackage{amssymb,amsmath}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{Sweave}
+\usepackage{lscape}
+\usepackage{float}
+%\usepackage{color} 
+\usepackage[latin1]{inputenc}
+\usepackage{sectsty}
+\usepackage[final]{pdfpages}
+\sectionfont{\large}
+\usepackage{listings}
+
+%\bffont{\large}
+% to change margings in itemize
+\newenvironment{itemize*}%
+{\begin{itemize}%
+ \setlength{\itemsep}{-0.35cm}%
+ \setlength{\parskip}{10pt}}%
+{\end{itemize}}
+
+
+% to change margin
+\newenvironment{changemargin1}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{-2cm}
+    \setlength{\rightmargin}{3cm}
+    \footnotesize
+  }
+  \item[]
+}{\end{list}}
+
+
+
+% to make fancy header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{Multivariate Analysis}
+\fancyhead[R]{Judith Pe?afiel \qquad \thepage}
+\renewcommand{\headrulewidth}{0.5pt} 
+\addtolength{\headheight}{5pt}
+
+
+\begin{document}
+
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{\'{I}ndice de tablas} 
+\renewcommand{\listfigurename}{\'{I}ndice de figuras}
+
+
+\title{\bf Exercises Multivariate Analysis}
+
+\vspace{1cm}
+
+\author{Judith Pe?afiel}
+
+
+\maketitle
+\newpage
+
+
+\section{An?lisi discriminant}
+\subsection{Find the mean vectors and the covariance matrices.}
+Comen?em llegint les dades
+<<echo=TRUE, results="hide">>=
+rm(list = ls())
+library(xtable)
+## setwd("C:/Documents and Settings/jpenafiel/Mis documentos/Dropbox/rutines/")
+setwd("C:/programs/Dropbox/rutines")
+dat<-read.table("Copepodes.csv",header=TRUE,sep=";")
+dat<-dat[-nrow(dat),]
+
+@
+Calculem les mitjanes del vector: 
+\begin{itemize}
+\item $\tilde{\mu}$ de tota la poblaci?.
+\item $\tilde{\mu_{1}}$   del estadi 1.
+\item $\tilde{\mu_{2}}$  del estadi 2.
+\end{itemize}
+
+<<echo=TRUE, results="hide">>=
+xbar0<-apply(dat[,1:2],2,mean,na.rm=T)## sample mean vector of the all estadi
+xbar1<-apply(subset(dat,estadi==1)[,1:2],2,mean) ## sample mean vector of the first estadi
+xbar2<-apply(subset(dat,estadi==2)[,1:2],2,mean) ## sample mean vector of the second estadi
+
+@
+Obtenim com a resultat:
+<<echo = FALSE, results = 'asis'>>=
+x1<-rbind(round(xbar0,3),round(xbar1,3),round(xbar2,3))
+rownames(x1)<-c("Tota la poblaci?","Estadi 1","Estadi 2")
+AR <- xtable(x1, caption ="Vector de mitjanes")
+print(AR, sanitize.text.function = function(x){x}, caption.placement="top",include.rownames = TRUE)   
+@
+Calculem les matrius de covari?ncia: 
+<<echo=TRUE, results="hide">>=
+cov.mat0<-cov(dat[,1:2], use ="complete.obs" )## covariance matrix of the all estadi
+cov.mat1<-cov(subset(dat,estadi==1)[,1:2]) ## covariance matrix of the first estadi
+cov.mat2<-cov(subset(dat,estadi==2)[,1:2])## covariance matrix of the second estadi
+@
+\begin{itemize}
+\item $\tilde{\Sigma}$   de tota la poblaci?.
+<<echo=FALSE, results="verbatim">>=
+
+round(cov.mat0,3)
+@
+\newpage
+\item$\tilde{\Sigma_1}$  del estadi 1.
+<<echo=FALSE, results="verbatim">>=
+round(cov.mat1,3) 
+@
+
+\item $\tilde{\Sigma_2}$  del estadi 2.
+<<echo=FALSE, results="verbatim">>=
+round(cov.mat1,3)
+@
+\end{itemize}
+
+\subsection{Perform a multivariate comparison of mean groups (In this case you case use an R specific function)}
+
+Utilitzem la proba Hotelling's T$^{2}$ que tasta la hip?tesi :
+\\
+H$_{0}:\mu=\mu_{0}$
+\\
+H$_{1}:\mu\neq\mu_{0}$
+\\
+La f?rmula utilitzada en la seg?ent funci? ?s:
+\\
+T$^{2}$=$\sqrt{n}(\hat{X}-\mu_{0})S_{pooled}^{-1}\sqrt{n}(\hat{X}-\mu_{0}$)
+\\
+On,
+\\
+T$^{2} \sim\frac{(n-1)p}{(n-p)}F_{p,n-p}$
+<<echo=TRUE, results="verbatim">>=
+
+#Funci? test de hotelling
+hotel2T2=function(x1,x2,a=0.05) 
+{
+p=ncol(x1) ## dimenisonality of the data
+n1=nrow(x1) ## size of the first sample
+n2=nrow(x2) ## size of the second sample
+n=n1+n2 ## total sample size
+xbar1=apply(x1,2,mean) ## sample mean vector of the first sample
+xbar2=apply(x2,2,mean) ## sample mean vector of the second sample
+dbar=xbar1-xbar2## difference of the two mean vectors
+v=((n1-1)*var(x1)+(n2-1)*var(x2))/(n-2) ## pooled covariance matrix
+t2=(n1*n2*dbar%*%solve(v)%*%dbar)/n
+test=((n-p-1)*t2)/((n-2)*p) ## test statistic
+crit=qf(1-a,p,n-p-1) ## critical value of the F distribution
+pvalue=1-pf(test,p,n-p-1) ## p-value of the test statistic
+list(test=test,critical=crit,p.value=pvalue,df1=p,df2=n-p-1) 
+}
+
+
+#Subgrup Estadi 1
+x1<-subset(dat,estadi==1)[,1:2]
+#Subgrup Estadi 2
+x2<-subset(dat,estadi==2)[,1:2]
+res<-hotel2T2(x1,x2,a=0.05) 
+
+@
+
+Obtenim:
+\\
+T$^{2}= 38.76 \leq \frac{(167-1)p}{(167-2)}F_{2,164}$
+\\
+Aleshores ,
+38.76$\geq \frac{(167-1)p}{(167-2)}F_{2,164}$. Per tant, rebutgem la hip?tesis nul?la d'igualtat en les matrius de mitjanes.
+
+Una altra manera de comparar les mitjanes, ?s el an?lisi MANOVA. On la hipotesis nula ?s igualtat en la matriu de mitjanes dels diferents grups.
+\\
+Utilitzarem la t?cnica de Wilk's. On l'estad?stic ?s:
+\\
+$\Lambda *=\frac{\left | W \right |}{\left | B+W \right |}$
+\\
+\right |
+<<echo=TRUE, results="verbatim">>=
+groupF<-factor(dat[,3])
+Yvar<-as.matrix(dat[,1:2])
+x<-summary(manova(Yvar~groupF, data=dat), test="Wilks")
+x
+@
+
+En aquest cas tampoc podem assumir igualtat en les matrius de mitjanes.
+
+\subsection{Perform a multivariate comparison of covariance matrices.}
+Per compara els dos vectors de mitjanes, primerament utilitzarem el Box's test:
+<<echo=TRUE, results="hide">>=
+#Box's test
+cov.Mtest=function(x,ina,a=0.05) 
+{
+p=ncol(x) ## dimension of the data set
+n=nrow(x) ## sample size
+k=max(ina) ## number of groups
+nu=rep(0,k) ## the sample size of each group will be stored here later
+pame=rep(0,k) ## the determinant of each covariance will be stored here
+## t calculate the covariance matrix of each group
+for (i in 1:k) {nu[i]=sum(ina==i) }
+z=cbind(x,ina)
+mat=array(dim=c(p+1,p+1,k))
+mat1=array(dim=c(p,p,k))
+
+for (i in 1:k) {mat[,,i]=cov(z[ina==i,]) }
+mat=mat[1:p,1:p,1:k]
+for (i in 1:k) {mat1[,,i]=mat[,,i]*nu[i] }
+
+##  calculate the pooled covariance matrix
+Sp=apply(mat1,1:2,sum)
+Sp=Sp/(n-k)
+for (i in 1:k) { ## this "for" function calculates the determinant
+## of each covariance matrix
+pame[i]=det((nu[i]/(nu[i]-1))*mat[,,i]) }
+pamela=det(Sp) ## determinant of the pooled covariance matrix
+
+##  construct the test statistic
+test1=log(pamela/pame)
+test2=sum((nu-1)*test1)
+gama1=(2*(p^2)+3*p-1)/(6*(p+1)*(k-1))
+gama2=gama1*(sum(1/(nu-1))-1/(n-k))
+gama=1-gama1*gama2
+test=gama*test2 ## this is the M
+df=0.5*p*(p+1)*(k-1) ## degrees of freedom of the chi-square distribution
+pvalue=1-pchisq(test,df) ## p-value of the test statistic
+crit=qchisq(1-a,df) #critical value of the chi-square distribution
+list(M.test=test,degrees=df,critical=crit,p.value=pvalue) 
+}
+
+
+res1<-cov.Mtest(dat[,1:2],as.numeric(dat[,3]),a=0.05) 
+@
+Tamb? utilitzem el test de la m?xima likelihood per comparar les matrius de covari?ncies.
+<<echo=TRUE, results="hide">>=
+#Test de la m?xima likelihod
+cov.likel=function(x,ina,a=0.05) 
+{
+p=ncol(x) ## dimension of the data set
+n=nrow(x) ## sample size
+k=max(ina) ## number of groups
+nu=rep(0,k) ## the sample size of each group will be stored later
+pame=rep(0,k) ## the determinant of each covariance will be stored
+
+for (i in 1:k) {nu[i]=sum(ina==i) }
+z=cbind(x,ina)
+mat=array(dim=c(p+1,p+1,k))
+mat1=array(dim=c(p,p,k))
+
+for (i in 1:k) {mat[,,i]=cov(z[ina==i,]) }
+mat=mat[1:p,1:p,1:k]
+
+##  create the pooled covariance matrix
+for (i in 1:k) {mat1[,,i]=mat[,,i]*nu[i] }
+Sp=apply(mat1,1:2,sum)
+Sp=Sp/n
+
+## calculate the determinant of each covariance matrix
+for (i in 1:k) {pame[i]=det(mat[,,i]) }
+pamela=det(Sp) ## determinant of the pooled covariance matrix
+
+test1=log(pamela/pame)  ## divides the determinant of the pooled covariance
+  					## matrix with every covariance matrix
+test=sum(nu*test1) ## test statistic
+df=0.5*p*(p+1)*(k-1) ## degrees of freedom of the asymptotic chi-square
+pvalue=1-pchisq(test,df) ## p-value of the test statistic
+crit=qchisq(1-a,df) #critical value of the chi-square distribution
+list(test=test,degrees=df,critical=crit,p.value=pvalue) 
+}
+
+
+res2<-cov.likel(dat[,1:2],as.numeric(dat[,3]),a=0.05) 
+@
+
+<<echo=FALSE, results="asis">>=
+tab<-rbind(rbind(res1),rbind(res2))
+
+rownames(tab)<-c("Box's test","Test de la m?xima likelihood")
+colnames(tab)<-c("Estad?stic","G.ll.", "Valor Cr?tic","P-Valor")
+AR <- xtable(tab, caption ="Igualtat en la matriu de cov?riancies",digits=3)
+print(AR, sanitize.text.function = function(x){x}, caption.placement="top",include.rownames = TRUE)   
+@
+
+
+\subsection{Construct the Fisher's linear discriminant function and the quadratic discriminant function using your own functions}
+\subsubsection{Funci? lineal de Fisher}
+
+Per tal de poder realitzar la funci? lineal de Fisher, calculem S$_{pooled}$ amb la f?rmula:
+\begin{center}
+S$_{pooled}$=$\frac{(n_{1}-1)S_{1}+(n_{2}-1)S_{2}}{n-2}$
+\end{center}
+<<echo=TRUE, results="hide">>=
+
+#Estadi 1
+x1<-subset(dat,estadi==1)[,1:2]
+#Estadi 2
+x2<-subset(dat,estadi==2)[,1:2]
+#Dimensi? de les dades
+p=ncol(x1)
+#Mostra en el estadi 1
+n1=nrow(x1) 
+#Mostra en el estadi 2
+n2=nrow(x2)
+#Total mostra
+n=n1+n2 
+#Vector mitjana mostral estadi 1
+xbar1=as.matrix(rbind(apply(x1,2,mean)))#
+#Vector mitjana mostral estadi 2
+xbar2=as.matrix(rbind(apply(x2,2,mean))) 
+#Diferencia vector de mitjanes
+dbar=xbar1-xbar2 
+## pooled covariance matrix
+v=((n1-1)*var(x1)+(n2-1)*var(x2))/(n-2) 
+@
+Obtenim:
+
+\begin{center}
+
+$\hat{S}_{pooled}$=$\begin{pmatrix}
+301.4 & 31.02\\ 
+31.02 & 222.52
+\end{pmatrix}$
+\end{center}
+\\
+\\
+Per obtenir la funci? discriminant de fisher calculem:
+\begin{center}
+ Y=($\mu_{1}-\mu_{1}$)'S$_{pooled}^{-1}$x
+\end{center}
+<<echo=TRUE, results="hide">>=
+#Inversa de Spooled
+v_inverse<-solve(v)
+#Funci? discriminant de fisher
+y=dbar%*%v_inverse
+
+
+
+@
+El resultat d'aquest ?s:
+\begin{pmatrix}
+-22.1439 &-9.7782
+\end{pmatrix}
+\begin{pmatrix}
+0.0034 & -0.0005 \\ 
+ -0.00054  &0.0046
+\end{pmatrix}
+\begin{pmatrix}
+X$_{1}$\\ X$_{2}$
+
+\end{pmatrix}=
+\\
+=-0.06995286X$_{1}$ -0.03418953X$_{2}$
+
+Per tal d 'assignar les noves observacions, apliquem la regla:
+\begin{itemize}
+\item X$_{0}$ en el estadi 1 si : ($\mu_2 -\mu_1$)' $\Sigma^{-1}X_{0} -m\leq$0 
+\item X$_{0}$ en el estadi 2 si : ($\mu_2 -\mu_1$)' $\Sigma^{-1}X_{0} -m\ge$0  
+\end{itemize}
+on,
+\\
+$\tilde{m}$=($\mu_{1}-\mu_{1}$)'S$_{pooled}^{-1}$($\mu_{1}+\mu_{1}$)
+<<echo=TRUE, results="hide">>=
+lda_fisher<-function(xbar1,xbar2,v_inverse,newdat)
+{
+  #Calcula la diferencia dels vectors de mitjanes
+  dbar<-xbar2-xbar1
+  #Calcula fisher
+  y=dbar%*%v_inverse
+  m<-(dbar%*%v_inverse%*%t(xbar2+xbar1))/2
+  
+  
+  d<-y%*%t(newdat) 
+  xo<-ifelse(d-m>=0,2,
+             ifelse(d-m<0,1,0))
+  x<-c(xo,d)
+
+  return(x)
+}
+lda<-NULL
+for( i in 1:nrow(dat))
+{lda<-rbind(lda,lda_fisher(xbar1,xbar2,v_inverse,as.matrix(dat[,1:2][i,])))}
+
+@
+<<echo=TRUE, results="hide">>=
+p1<-nrow(x1)/nrow(dat)
+p2<-nrow(x2)/nrow(dat)
+@
+
+En aquest cas no em tingut en compte les probabilitats a priori, que en aquest cas s?n diferents pels dos grups.Segons el llibre {\bf{Applied Multivariate Statistical Analysis}} de Johnson utilitzarem la seg?ent regla per assignar noves observacions en els estadis:
+\begin{itemize}
+\item p$_{1}$=\frac{n_{1}}{n}$ = \Sexpr{p1}
+\item p$_{2}$=\frac{n_{1}}{n}$ = \Sexpr{p2}
+\end{itemize}
+
+
+<<echo=TRUE, results="hide">>=
+p1<-nrow(x1)/nrow(dat)
+p2<-nrow(x2)/nrow(dat)
+lda_fisher_priori<-function(xbar1,xbar2,v_inverse,newdat,p1,p2)
+{
+  #Calcula la diferencia dels vectors de mitjanes
+  dbar<-xbar2-xbar1
+  #Calcula fisher
+  y=dbar%*%v_inverse
+  m<-log(p1/p2)
+  
+  
+  d<-y%*%t(newdat) 
+  xo<-ifelse(d-m>=0,1,
+             ifelse(d-m<0,2,0))
+
+  x<-c(xo,d)
+
+  return(x)
+}
+lda_priori<-NULL
+for( i in 1:nrow(dat))
+{lda_priori<-rbind(lda_priori,lda_fisher_priori(xbar1,xbar2,v_inverse,as.matrix(dat[,1:2][i,]),p1,p2))}
+
+@
+
+\subsubsection{Funci? quad?tica discriminant}
+Per tal de portar a terme la funci? discriminant quadr?tica utilitzarem la regla:
+\\
+$\frac{1}{2}x_{0}'(S_{1}^{-1}-S_{2}^{-1})x_0}+(\hat{x}_{1}'S_{1}^{-1}-{\hat{x}_{2}'S_{2}^{-1})x_{0}-k\geq log(\frac{p_1}{p{2}})$
+\\
+on,
+\\
+k=$\frac{1}{2}\left ( \frac{\left | S_{1} \right |}{\left | S_{2} \right |} \right )+\frac{1}{2}(\hat{x}_{1}'S_{1}^{-1}\hat{x}_{1}-\hat{x}_{2}'S_{2}^{-1}\hat{x}_{2})$
+<<echo=TRUE, results="hide">>=
+#S1
+s1<-cov(x1)
+#s2
+s2<-cov(x2)
+p1<-nrow(x1)/nrow(dat)
+p2<-nrow(x2)/nrow(dat)
+k<-1/2*log(det(s1)/det(s2))+1/2*((xbar1)%*%solve(s1)%*%t(xbar1)-xbar2%*%solve(s2)%*%t(xbar2))
+qda<-NULL
+X<-as.matrix(dat[,1:2])
+for(i in 1:nrow(dat)){
+yq<--1/2*t(X[i,])%*%(solve(s1)-solve(s2))%*%X[i,]+(xbar1%*%solve(s1)-xbar2%*%solve(s2))%*%X[i,]
+xo<-ifelse(yq-k>=log(p1/p2),1,
+    ifelse(yq-k<log(p1/p2),2,NA))       
+qda<-rbind(qda,cbind(yq,xo))
+}
+res<-cbind(dat,qda[,2])
+table(res[,3],res[,4])
+@
+
+\subsection{Show the derived discriminant functions on a scatter plot of the original data.}
+<<echo=TRUE, results="hide">>=
+
+
+jpeg("./fig1.jpg")
+x<-cbind(lda,dat[,3])
+
+plot(x[,2],bty="n", type="n", main="Funci? discriminant de Fisher",ylab="first linear discriminant",xlab="")
+points(subset(x[,2],x[,3]==1),col="orangered",pch=20)
+points(subset(x[,2],x[,3]==2),col="blue",pch=20)
+legend("bottomright",c("Estadi 1","Estadi 2"),col=c("orangered","blue"),pch=20,bty="n")
+
+dev.off()
+@
+No ?s pot realitzar el gr?fic de la funci? discriminant quadr?tica, ja que es basa en un score/ regla d'assignaci?.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=10cm]{./fig1.jpg}
+\end{center}
+\end{figure}
+
+\subsection{Estimate the misclassification rate.}
+\subsubsection{Funci? lineal de Fisher}
+No tinguen en compte les probabilitats a priori:
+<<echo=TRUE, results="asis">>=
+
+ct <- table(dat$estadi, lda[,1])
+colnames(ct)<-c("Allocated to Estadi 1" ,"Allocated to Estadi 2"  )
+rownames(ct)<-c("Is  Estadi 1" ,"Is Estadi 2"  )
+x<-ct[1,2]+ct[2,1]#Misclassified
+AR <- xtable(ct, caption ="Misclassification")
+print(AR, sanitize.text.function = function(x){x}, caption.placement="top",include.rownames = TRUE)   
+ 
+
+@
+Tenim un total de  \Sexpr{x}  individus mal classificats
+\\
+Que correspon a una proporci? del mal classificats de: \Sexpr{round(x/sum(ct),2)}
+\\
+\\
+\newpage
+Tinguen en compte les probabilitats a priori:
+<<echo=TRUE, results="asis">>=
+
+ct <- table(dat$estadi, lda_priori[,1])
+colnames(ct)<-c("Allocated to Estadi 1"  )
+rownames(ct)<-c("Is  Estadi 1" ,"Is Estadi 2"  )
+x<-0#Misclassified
+AR <- xtable(ct, caption ="Misclassification")
+print(AR, sanitize.text.function = function(x){x}, caption.placement="top",include.rownames = TRUE)   
+ 
+
+@
+Tenim un total de  \Sexpr{x}  individus mal classificats
+\\
+Que correspon a una proporci? del mal classificats de: \Sexpr{round(x/sum(ct),2)}
+\\
+Utilitzant les probabilitat a priori, trobem que no classifiquem malament cap individu.
+
+\subsubsection{Funci? quad?tica discriminant}
+
+<<echo=TRUE, results="asis">>=
+
+ct <- table(dat$estadi, qda[,2])
+colnames(ct)<-c("Allocated to Estadi 1" ,"Allocated to Estadi 2"  )
+rownames(ct)<-c("Is  Estadi 1" ,"Is Estadi 2"  )
+x<-ct[1,2]+ct[2,1]#Misclassified
+AR <- xtable(ct, caption ="Misclassification")
+print(AR, sanitize.text.function = function(x){x}, caption.placement="top",include.rownames = TRUE)   
+
+@
+Tenim un total de  \Sexpr{x}  individus mal classificats
+\\
+Que correspon a una proporci? del mal classificats de: \Sexpr{round(x/sum(ct),2)}
+
+\end{document}
